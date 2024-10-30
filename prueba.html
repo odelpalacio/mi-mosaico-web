@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mosaico de Imágenes</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .mosaico {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 10px;
+            max-width: 1000px;
+            padding: 20px;
+        }
+        .mosaico-item {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .mosaico-item:hover {
+            transform: scale(1.05);
+        }
+        .mosaico-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 25px; /* Borde redondeado en cada imagen */
+        }
+        .mosaico-item .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 25px;
+        }
+        .mosaico-item:hover .overlay {
+            opacity: 1;
+        }
+        /* Estilos responsivos */
+        @media (max-width: 768px) { /* Ajustes para tablets */
+            .mosaico {
+                grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas de tablet */
+            }
+        }
+        @media (max-width: 480px) { /* Ajustes para móviles */
+            .mosaico {
+                grid-template-columns: 1fr; /* Una columna en pantallas de móviles */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="mosaico">
+    <a href="https://example.com/producto1" class="mosaico-item">
+        <img src="https://via.placeholder.com/300" alt="Producto 1">
+        <div class="overlay">Producto 1</div>
+    </a>
+    <a href="https://example.com/producto2" class="mosaico-item">
+        <img src="https://via.placeholder.com/300" alt="Producto 2">
+        <div class="overlay">Producto 2</div>
+    </a>
+    <a href="https://example.com/producto3" class="mosaico-item">
+        <img src="https://via.placeholder.com/300" alt="Producto 3">
+        <div class="overlay">Producto 3</div>
+    </a>
+    <a href="https://example.com/producto4" class="mosaico-item">
+        <img src="https://via.placeholder.com/300" alt="Producto 4">
+        <div class="overlay">Producto 4</div>
+    </a>
+</div>
+
+</body>
+</html>
